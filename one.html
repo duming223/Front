@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <Style type="text/css">
+        .div {
+            text-align: center;
+        }
+
+        .img {
+            margin-top: 100px;
+            width: 600px;
+            height: 600px;
+        }
+
+        p {
+            font-family: 微软雅黑;
+            font-size: 40px;
+            text-shadow: 2px 1px 3px;
+            opacity: 1;
+        }
+
+        html:hover .img {
+
+            transition-delay: 500ms;
+            transition-duration: 1s;
+            width: 100px;
+            height: 100px;
+            margin-top: 0px;
+            /* animation-name: img;
+               animation-delay: 500ms;
+               animation-duration:2s 
+               animation-fill-mode: forwards; */
+        }
+
+        @keyframes img {
+            to {
+                width: 100px;
+                height: 100px;
+                margin-top: 0px;
+            }
+        }
+
+        html:hover p {
+            transition-delay: 500ms;
+            font-family: 微软雅黑;
+            font-size: 40px;
+            text-shadow: 2px 1px 3px;
+            opacity: 0;
+        }
+    </Style>
+</head>
+
+<body>
+    <div class="div">
+        <img src="./images/IMG_1811.JPG" class="img">
+        <p>X R</p>
+    </div>
+</body>
+</html>
