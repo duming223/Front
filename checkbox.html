@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CheckBox</title>
+    <style>
+        table {
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            //！！作用域
+            var cheArr = document.getElementsByTagName("tbody")[0].getElementsByTagName("input")
+            //
+            document.getElementById("cheall").onclick = function () {
+                for (let i = 0; i < cheArr.length; i++) {
+                    const element = cheArr[i];
+                    if (element.type == "checkbox" && this.checked == true) {
+                        element.checked = true;
+                    } else {
+                        element.checked = false;
+                    }
+                }
+            }
+
+            for (let j = 0; j < cheArr.length; j++) {
+                const index = cheArr[j];
+                index.onclick = function () {
+                    if (this.checked == false) {
+                        document.getElementById("cheall").checked = false;
+                    }
+                    for (let k = 0; k < cheArr.length; k++) {
+                        const ck = cheArr[k];
+                        if (ck.checked == false) {
+                            document.getElementById("cheall").checked = false;
+                            return;
+                        }
+                    }
+                    document.getElementById("cheall").checked = true;
+                }
+
+            }
+
+            // element.onclick = function () {
+            //     if (this.checked == false) {
+            //         document.getElementById("cheall").checked = false;
+            //     }
+            //     //var tbCheArr = document.getElementsByTagName("tbody")[0].getElementsByTagName("input")
+            //     for (let j = 0; j < cheArr.length; j++) {
+            //         const index = cheArr[j];
+            //         if (index.checked == false) {
+            //             document.getElementById("cheall").checked = false;
+            //             return;
+            //         }
+            //         document.getElementById("cheall").checked = true;
+            //     }
+            //}
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <table border="1px" align="center">
+            <thead>
+                <tr>
+                    <th rowspan="2">运动</th>
+                    <th>全选<input type="checkbox" id="cheall"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>篮球</td>
+                    <td> <input type="checkbox" value="篮球"> </td>
+                </tr>
+                <tr>
+                    <td>足球</td>
+                    <td><input type="checkbox" value="足球"></td>
+                </tr>
+                <tr>
+                    <td>乒乓球</td>
+                    <td><input type="checkbox" value="乒乓球"></td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+</body>
+
+</html>

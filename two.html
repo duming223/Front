@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+        }
+        img{
+            margin: 160px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <img src="./images/IMG_1811.JPG" id="img1" width="400px" height="600px" >
+         <!-- onclick=change() 时不是绑定事件 而是调用方法 所以方法中的this 
+         没有指向事件源（<img src="./images/IMG_1811.JPG" id="img1" width="400px" height="600px" >）
+         — button点击后不会更换图片！ -->
+        <button onclick=change()>点击更换图片</button>
+    </div>
+    <a href="https://www.bilibili.com "id="123">bilibili</a>
+    <script>
+        document.getElementById("img1").onclick=change
+            function change(){
+                console.log(this)
+                     this.src="./images/CyMa.jpg"
+            }
+            document.getElementById("123").onclick=function(){
+                this.href="https://www.baidu.com/";
+                this.innerText="baidu"
+                return false
+            }
+            
+            </script>
+
+</body>
+
+</html>
