@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .content div {
+            display: none;
+        }
+
+        .content .active {
+            display: block
+        }
+    </style>
+    <script>
+        window.onload = function (){
+            //var tabBtns =document.getElementsByClassName("tabhead")[0].getElementsByTagName("span");
+            //var contents=document.getElementsByClassName("content")[0].getElementsByTagName("div");
+            var tabBtns = document.querySelectorAll(".tabhead>span");
+            var contents = document.querySelectorAll(".content>div");
+            for (let i = 0; i < tabBtns.length; i++) {
+                const element = tabBtns[i];
+                element.onclick = function (){
+                    var danme = this.getAttribute("dname");
+                    
+                    for (let j = 0; j < contents.length; j++) {
+                        const content = contents[j];
+                        //content.className = " ";
+                        content.style.display="none";
+                        if (content.getAttribute("danme") == danme) {
+                            content.style.display="block";
+                            //content.className = "active";
+                        }
+                    }
+                }
+            }
+        } 
+    </script>
+</head>
+
+<body>
+    <div class="tabhead">
+        <span dname="tv">电视剧</span>
+        <span dname="movie">电影</span>
+        <span dname="katong">动漫</span>
+        <span dname="zongyi">综艺</span>
+    </div>
+    <div clas="content">
+        <div dname="tv" class="active">电视剧内容</div>
+        <div dname="movie">电影内容</div>
+        <div dname="katong">动漫内容</div>
+        <div dname="zongyi">综艺内容</div>
+    </div>
+</body>
+
+</html>

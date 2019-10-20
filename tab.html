@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .demo {
+            margin-left: 800px;
+            margin-top: 200px;
+        }
+
+        .content div{
+            height: 300px;
+            width: 300px;
+            background: pink;
+            display: none;
+        }
+
+        .content .active {
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //var spans=document.getElementsByClassName("tabBts")[0].getElementsByTagName("span")
+            var tab = document.querySelectorAll(".tabBts>span");
+            var contents = document.querySelectorAll(".content>div");
+            for (let i = 0; i < tab.length; i++) {
+                const element = tab[i];
+                element.onclick = function () {
+                    var tname = this.getAttribute("sn");
+                    for (let j = 0; j < contents.length; j++) {
+                        const cont = contents[j];
+                        cont.className = "";
+                        if (cont.getAttribute("sn")== tname) {
+                            cont.className = "active";
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="demo">
+        <div class="tabBts">
+            <span sn="a">电影</span>
+            <span sn="b">游戏</span>
+            <span sn="c">动漫</span>
+            <span sn="d">综艺</span>
+        </div>
+        <div class="content ">
+            <div sn="a" class="active">电影内容</div>
+            <div sn="b">游戏内容</div>
+            <div sn="c">动漫内容</div>
+            <div sn="d">综艺内容</div>
+        </div>
+    </div>
+</body>
+</html>
